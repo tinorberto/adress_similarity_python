@@ -12,7 +12,7 @@ https://www.oreilly.com/learning/how-do-i-compare-document-similarity-using-pyth
 
 """
 import gensim
-
+import numpy
 #print(dir(gensim))
 from nltk.tokenize import word_tokenize
 
@@ -78,7 +78,7 @@ sims = gensim.similarities.Similarity('D:\similarity/',tf_idf[corpus],
 #print(sims)
 #print(type(sims))
 
-query_doc = [w.lower() for w in word_tokenize("RUA JOAQUIM TEIXEIRA DOS ANJOS")]
+query_doc = [w.lower() for w in word_tokenize("AFONSO PENA")]
 #print(query_doc)
 query_doc_bow = dictionary.doc2bow(query_doc)
 #print(query_doc_bow)
@@ -90,4 +90,14 @@ print ("Result")
 """ Array com asimilaridade"""
 print ((sims[query_doc_tf_idf]))
 print ((sims[query_doc_tf_idf].argmax(axis=0)))
+print (type(sims[query_doc_tf_idf]))
+print ('Size')
+print (sims[query_doc_tf_idf].size)
+
+for x in range (0, sims[query_doc_tf_idf].size):
+    if  sims[query_doc_tf_idf][x] != 0.0:
+        print ("Simi "+ str(sims[query_doc_tf_idf][x])+" Valor "+raw_documents[x])
+        #print (raw_documents[x])
+
+
 print (raw_documents[sims[query_doc_tf_idf].argmax(axis=0)])
