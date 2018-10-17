@@ -23,7 +23,7 @@ Criar alguns docoumetos
 #raw_documents = [""]
 
 
-text_file = open("nome_logradouro.txt", "r")
+text_file = open("nome_logradouro_tipo_bairro_regi.txt", "r")
 raw_documents = text_file.readlines()
 
 
@@ -78,7 +78,7 @@ sims = gensim.similarities.Similarity('D:\similarity/',tf_idf[corpus],
 #print(sims)
 #print(type(sims))
 
-query_doc = [w.lower() for w in word_tokenize("AFONSO PENA")]
+query_doc = [w.lower() for w in word_tokenize("AVENIDA AFONSO 1500")]
 #print(query_doc)
 query_doc_bow = dictionary.doc2bow(query_doc)
 #print(query_doc_bow)
@@ -95,7 +95,7 @@ print ('Size')
 print (sims[query_doc_tf_idf].size)
 
 for x in range (0, sims[query_doc_tf_idf].size):
-    if  sims[query_doc_tf_idf][x] != 0.0:
+    if  sims[query_doc_tf_idf][x] > 0.5:
         print ("Simi "+ str(sims[query_doc_tf_idf][x])+" Valor "+raw_documents[x])
         #print (raw_documents[x])
 
