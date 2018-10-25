@@ -24,7 +24,7 @@ Criar alguns docoumetos
 
 
 def similarity(adress_list):
-    text_file = open("nome_logradouro_tipo.txt", "r")
+    text_file = open("bairros.txt", "r")
     raw_documents = text_file.readlines()
 
 
@@ -131,6 +131,44 @@ def similarity(adress_list):
 
 if __name__ == "__main__":
         adress_list = ["AVENIDA AFONSO pena 120", "DAS PRINCESA", "GETULIO VARGAS"]
-        text_file = open("ponto_vendas.txt", encoding="utf8")
+        text_file = open("endereco.txt", encoding="utf8")
         raw_documents = text_file.readlines()
-        similarity(raw_documents)
+
+        stoplist = ["RECAPEAMENTO ASFÁLTICO DA ", 
+        "RECAPEAMENTO DA ",
+        "RECAPEMENTO DA ",
+        'RECAPEAMENTO PARA ',
+        "RECAPEAMENTO UTILIZANDO ASFALTO MOÍDO",
+        "SERVIÇO CE TAPA BURACOS NA",
+        "RECAPEAMENTO UTILIZANDO ASFALTO MOÍDO NA ",
+        'ASFALTAMENTO DA ',
+        "SERVIÇO DE TAPA BURACOS DA ",
+        "SERVIÇO DE TAPA BURACOS EM TODA A EXTENSÃO DA",
+        "SERVIÇO DE TAPA BURACOS EM TODA EXTENSÃO DA ",
+        "SINALIZAÇÃO HORIZONTAL NA ",
+        "COLOCAÇÃO DE POSTE NA ",
+        "ILUMINAÇÃO PÚBLICA EM ",
+        "IMPLANTAÇÃO DE BUEIROS / BOCAS DE LOBO",
+        "IMPLANTAÇÃO DE CICLOVIA NA ",
+        "IMPLANTAÇÃO DE ILUMINAÇÃO PÚBLICA NA ",
+        "IMPLANTAÇÃO DE RAMPA DE ACESSIBILIDADE NA ",
+        "INSTALAÇÃO DE REDE DE ESGOTO NO ",
+        "MANUTENÇÃO DA REDE PLUVIAL NA ",
+        "MANUTENÇÃO DA SINALIZAÇÃO HORIZONTAL DAS ",
+        "PODA DE ÁRVORE NA ",
+        "SOLICITA ",
+        "SOLICITA TAPA BURACO NA RUA " ,
+        "TAPA BURACOS AO LONGO DA ",
+        "TAPA BURACOS NA "]
+
+        #print (raw_documents)
+
+        for i in range (0, len(raw_documents)):
+            for s in stoplist:
+                if s in raw_documents[i]:
+                    raw_documents[i] = raw_documents[i].replace(s , "")
+
+
+
+        print (raw_documents)
+        #similarity(raw_documents)
