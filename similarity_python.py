@@ -134,14 +134,17 @@ if __name__ == "__main__":
         text_file = open("endereco.txt", encoding="utf8")
         raw_documents = text_file.readlines()
 
-        stoplist = ["RECAPEAMENTO ASFÁLTICO DA ", 
+        stoplist = [
+        "RECAPEAMENTO ASFÁLTICO DA ", 
         "RECAPEAMENTO DA ",
         "RECAPEMENTO DA ",
         'RECAPEAMENTO PARA ',
         "RECAPEAMENTO UTILIZANDO ASFALTO MOÍDO",
         "SERVIÇO CE TAPA BURACOS NA",
+        "RECAPEAMENTO ASFÁLTICO EM TODA A EXTENSÃO DA "
         "RECAPEAMENTO UTILIZANDO ASFALTO MOÍDO NA ",
         'ASFALTAMENTO DA ',
+        "SERVIÇO DE TAPA BURACOS NA ",
         "SERVIÇO DE TAPA BURACOS DA ",
         "SERVIÇO DE TAPA BURACOS EM TODA A EXTENSÃO DA",
         "SERVIÇO DE TAPA BURACOS EM TODA EXTENSÃO DA ",
@@ -156,10 +159,13 @@ if __name__ == "__main__":
         "MANUTENÇÃO DA REDE PLUVIAL NA ",
         "MANUTENÇÃO DA SINALIZAÇÃO HORIZONTAL DAS ",
         "PODA DE ÁRVORE NA ",
+        "SOLICITA NA",
         "SOLICITA ",
         "SOLICITA TAPA BURACO NA RUA " ,
         "TAPA BURACOS AO LONGO DA ",
-        "TAPA BURACOS NA "]
+        "TAPA BURACO NA ",
+        "TAPA BURACOS NA ",
+        "SERVIÇO DE "]
 
         #print (raw_documents)
 
